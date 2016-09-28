@@ -39,9 +39,9 @@ public class EditorActivity extends AppCompatActivity implements
     private EditText mPriceEditText;
     private TextView mQuantityText;
     private Button mOrderButton;
-    private Button mDeleteButton = (Button) findViewById(R.id.delete_button);
-    private Button mIncrementButton = (Button) findViewById(R.id.increment);
-    private Button mDecrementButton = (Button) findViewById(R.id.decrement);
+    private Button mDeleteButton;
+    private Button mIncrementButton;
+    private Button mDecrementButton;
 
     private boolean mInventoryHasChanged = false;
 
@@ -64,6 +64,14 @@ public class EditorActivity extends AppCompatActivity implements
         Intent intent = getIntent();
         mCurrentInventoryUri = intent.getData();
 
+        mNameEditText = (EditText) findViewById(R.id.edit_inventory_name);
+        mPriceEditText = (EditText) findViewById(R.id.edit_inventory_price);
+        mQuantityText = (TextView) findViewById(R.id.quantity_view);
+        mOrderButton = (Button) findViewById(R.id.order_button);
+        mDeleteButton = (Button) findViewById(R.id.delete_button);
+        mIncrementButton = (Button) findViewById(R.id.increment);
+        mDecrementButton = (Button) findViewById(R.id.decrement);
+
         if (mCurrentInventoryUri == null) {
 
             setTitle(getString(R.string.editor_activity_title_new_inventory));
@@ -79,11 +87,6 @@ public class EditorActivity extends AppCompatActivity implements
         }
 
         mProductName = "";
-
-        mNameEditText = (EditText) findViewById(R.id.edit_inventory_name);
-        mPriceEditText = (EditText) findViewById(R.id.edit_inventory_price);
-        mQuantityText = (TextView) findViewById(R.id.quantity_view);
-        mOrderButton = (Button) findViewById(R.id.order_button);
 
         mNameEditText.setOnTouchListener(mTouchListener);
         mPriceEditText.setOnTouchListener(mTouchListener);
