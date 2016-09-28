@@ -17,6 +17,9 @@
         </activity>
         <activity android:name=".EditorActivity">
         </activity>
+        <provider
+            android:authorities="com.example.sunginjung"
+            android:name=".data.InventoryProvider"/>
     </application>
 
 </manifest>
